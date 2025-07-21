@@ -1,0 +1,26 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+<body>
+
+    <% for(let i=0; i<totalPoints.length; i++) {%>
+    <div class="card mt-3">
+
+  <div class="card-body">
+    <figure>
+      <blockquote class="blockquote">
+        <p>Congratulation <%= totalPoints[i].user.name %> your recived <%= totalPoints[i].points %> points ...!</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        <%= totalPoints[i].createdAt %><cite title="Source Title"></cite>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+<% } %>
+   
+</body>
+
+ <!-- <% for(let i=0; i<totalPoints.length; i++) {%>
+        <p><%= i+1 %>  Points:- <%= totalPoints[i].points %>  Time:- <%= totalPoints[i].createdAt %> </p>
+
+    <% } %> -->

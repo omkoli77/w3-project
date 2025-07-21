@@ -1,0 +1,77 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+    <body>
+        
+        <div class="row">
+            <div class="col-8 offset-2">
+
+                <div class="row">
+                <div class="col-4">
+                    <% if(allUsers[1]) {%>
+                        <div class="card card-1 rank-2" style="width: 10rem;">
+                            <img src="<%= allUsers[1].image %>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"> <%= allUsers[1].name %> </h5>
+                                <p class="card-text"> &#128293;<%= allUsers[1].points %> </p>
+                                <h6 class="card-text">Rank &#127775; &#127775;</h6>
+                            </div>
+                        </div>
+                     <% } %>
+                </div>
+
+                <div class="col-4">
+                    <% if(allUsers[0]) {%>
+                        <div class="card card-1 rank-1 mb-3" style="width: 10rem;">
+                            <img src="<%= allUsers[0].image %>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"> <%= allUsers[0].name %> </h5>
+                                <p class="card-text"> &#128293;<%= allUsers[0].points %> </p>
+                                <h6 class="card-text">Rank &#127775;</h6>
+                            </div>
+                        </div>
+                     <% } %>
+                </div>
+
+                <div class="col-4">
+                    <% if(allUsers[2]) {%>
+                        <div class="card card-1 rank-3" style="width: 10rem;">
+                            <img src="<%= allUsers[2].image %>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"> <%= allUsers[2].name %> </h5>
+                                <p class="card-text"> &#128293;<%= allUsers[2].points %> </p>
+                                <h6 class="card-text">Rank &#127775; &#127775; &#127775;</h6>
+                            </div>
+                        </div>
+                     <% } %>
+                </div>
+                </div>
+
+            </div>
+        </div>
+        
+
+        <div class="row">
+        <% for(let i=0; i<allUsers.length; i++) {%>
+
+            <div class="card mt-3 col-8 offset-2">
+
+                <div class="card-body">
+                    <figure>
+                        <blockquote class="blockquote">
+                             <p><div class="row ">
+                                <span class="col-1 num"><%= i+1 %></span>
+                                <span class="col-3"> <img src="<%= allUsers[i].image %>" alt="img" class="normal"> <%= allUsers[i].name %></span>
+                                <span class="col-2 num"><%= allUsers[i].points %>&#128293;</span>
+                                <span class="col-3"><a href="/users/<%= allUsers[i]._id %>/edit" class="btn btn-outline-success btn-sm">Claim Points 1</a></span>
+                                <span class="col-3"><a href="/users/<%= allUsers[i]._id %>/show" class="btn btn-outline-primary btn-sm"> Points history</a></span>
+                             </div></p>
+                        </blockquote>
+                    </figure>
+                </div>
+            </div>
+
+            <% } %>
+            </div>
+    </body>
+
+

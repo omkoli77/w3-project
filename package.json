@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "cloudinary": "^2.7.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.0",
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "mongoose": "^8.16.4",
+    "multer": "^2.0.2",
+    "multer-storage-cloudinary": "^4.0.0"
+  }
+}
