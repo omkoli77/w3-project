@@ -8,14 +8,13 @@ const engine = require("ejs-mate")
 const session = require('express-session')
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
+const mongoStore = require("connect-mongo");
 if(process.env.NODE_ENV !== "production"){
     require("dotenv").config()
 };
 
-
-
 async function main(){
-    await mongoose.connect(process.env.MONGODB_URL)
+    await mongoose.connect(process.env.MONGO_URL)
     .then(()=>{
     console.log("mongodb server connected");
     })
@@ -25,7 +24,21 @@ async function main(){
 }
 main();
 
+
+const strore = mongoStore.create({
+    mongoUrl: process.env.MONGO_URL,
+    crypto: {
+        secret: process.env.SESSION_SECRET,
+    },
+    touchAfter: 24*3600
+});
+
+strore.on("error", ()=>{
+    console.log("mongo session error", error)
+})
+
 let sessionOption ={
+    strore,
   secret: process.env.SESSION_SECRET,
   resave: false,
     saveUninitialized: false,
@@ -35,9 +48,9 @@ let sessionOption ={
     httpOnly: true,
 };
 
-app.use(cookieParser());
-app.use(flash())
 app.use(session(sessionOption));
+app.use(cookieParser());
+app.use(flash());
 app.use(express.urlencoded({extended: true}));
 app.set("views", "ejs engine");
 app.set("views", path.join(__dirname, "views"));
