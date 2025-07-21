@@ -2,7 +2,7 @@
 A simple point-claiming leaderboard system where users can earn random points and get ranked accordingly.
 
 🔗 Live Demo
-🌐 View Project
+ https://w3-project.onrender.com/users
 
 📁 Tech Stack
 Frontend: EJS (Embedded JavaScript Templates)
